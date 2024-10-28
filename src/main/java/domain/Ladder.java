@@ -11,7 +11,7 @@ public class Ladder {
         ladderRow.add("|");
 
         boolean previousBridgeExists = false;
-        int verticalCount = 1;
+        int widthCount = 1;
 
         for (int i = 0; ; i++) {
             int randomValue = randomGenerator.generateRandom();
@@ -21,9 +21,9 @@ public class Ladder {
                 ladderRow.add("-----");
                 previousBridgeExists = true;
                 ladderRow.add("|");
-                verticalCount++;
+                widthCount++;
             }
-            if (verticalCount == widthOfLadder) {
+            if (widthCount == widthOfLadder) {
                 break;
             }
             // 직전에 연결 다리가 있는 경우 - 1-1) 무조건 공백 생성
@@ -37,8 +37,8 @@ public class Ladder {
                 previousBridgeExists = false;
             }
             ladderRow.add("|");
-            verticalCount++;
-            if (verticalCount == widthOfLadder) {
+            widthCount++;
+            if (widthCount == widthOfLadder) {
                 break;
             }
         }

@@ -6,13 +6,13 @@ import java.util.List;
 public class LadderCollection {
     private static List<List<String>> ladderLayers;
 
-    public LadderCollection(int numberOfLayers, int widthOfLadder) {
+    public LadderCollection(int heightOfLadder, int widthOfLadder) {
         ladderLayers = new ArrayList<>();
-        generateLadderLayers(numberOfLayers, widthOfLadder);
+        generateLadderLayers(heightOfLadder, widthOfLadder);
     }
 
-    private void generateLadderLayers(int numberOfLayers, int widthOfLadder) {
-        for(int i = 0; i < numberOfLayers; i++) {
+    private void generateLadderLayers(int heightOfLadder, int widthOfLadder) {
+        for (int i = 0; i < heightOfLadder; i++) {
             ladderLayers.add(Ladder.generateLadderRow(widthOfLadder));
         }
     }
