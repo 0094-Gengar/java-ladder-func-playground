@@ -1,10 +1,10 @@
 package domain;
 
-public class Person {
+public class Player {
     private String name;
     private int position;
 
-    public Person(String name, int position) {
+    public Player(String name, int position) {
         this.name = name;
         this.position = position;
     }
