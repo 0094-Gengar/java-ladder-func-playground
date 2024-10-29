@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LadderCollection {
-    private static List<List<String>> ladderLayers;
+    private List<List<String>> ladderLayers;
 
     public LadderCollection(int heightOfLadder, int widthOfLadder) {
         ladderLayers = new ArrayList<>();
@@ -17,11 +17,7 @@ public class LadderCollection {
         }
     }
 
-    public static List<List<String>> getLadderLayers() {
+    public List<List<String>> getLadderLayers() {
         return ladderLayers;
-    }
-
-    public static List<String> getLadderLayer(int index) {
-        return ladderLayers.get(index);
     }
 }
