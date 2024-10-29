@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PlayerCollection {
 
-    public static List<Person> makePlayerCollection(String input) {
+    public static List<Person> createPlayerCollection(String input) {
         List<Person> players = new ArrayList<>();
         StringBuilder nameBuilder = new StringBuilder();
         int position = 0;
