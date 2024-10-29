@@ -3,37 +3,33 @@ package domain;
 import java.util.List;
 
 public class PlayerMovingLogic {
-    private static LadderCollection ladderCollection;
+    private LadderCollection ladderCollection;
 
     public PlayerMovingLogic(LadderCollection ladderCollection) {
         this.ladderCollection = ladderCollection;
     }
 
-    // 오른쪽에 연결 다리 있을 시(position++;)
-    public void moveRight(Player player) {
-        int position = player.getPosition();
-        List<String> ladder = LadderCollection.getLadderLayer();
-
-        if (position + 1 < ladder.size() && ladder.get(position + 1).equals("-----")) {
-            player.setPosition(position + 1);
+    // 모든 사다리 층을 순회하며 플레이어 이동 처리
+    public void updatePlayerPositions(List<Player> players) {
+        for (Player player : players) {
+            movePlayers(player);
         }
+
     }
 
-    // 왼쪽에 연결 다리 있을 시(position--;)
-    public void moveLeft(Player player) {
+    private void movePlayers(Player player) {
         int position = player.getPosition();
-        List<String> ladder = LadderCollection.getLadderLayer();
 
-        if (position - 1 >= 0 && ladder.get(position - 1).equals("-----")) {
-            player.setPosition(position - 1);
+        for (List<String> ladderRow : ladderCollection.getLadderLayers()) {
+            // 현재 위치에서 오른쪽에 연결 다리가 있는 경우
+            if (position * 2 + 1 < ladderRow.size() && ladderRow.get(position * 2 + 1).equals("-----")) {
+                position += 1;
+            }
+            // 현재 위치에서 왼쪽에 연결 다리가 있는 경우
+            else if (position * 2 - 1 >= 0 && ladderRow.get(position * 2 - 1).equals("-----")) {
+                position -= 1;
+            }
+            player.setPosition(position);
         }
-    }
-
-    // 연결 다리 없을 시(position=position;)
-    public void moveDown(Player player) {
-        int position = player.getPosition();
-        List<String> ladder = LadderCollection.getLadderLayer();
-
-        player.setPosition(position);
     }
 }
