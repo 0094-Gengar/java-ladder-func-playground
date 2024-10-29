@@ -20,4 +20,8 @@ public class LadderCollection {
     public static List<List<String>> getLadderLayers() {
         return ladderLayers;
     }
+
+    public static List<String> getLadderLayer(int index) {
+        return ladderLayers.get(index);
+    }
 }
