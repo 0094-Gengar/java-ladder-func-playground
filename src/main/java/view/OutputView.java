@@ -60,6 +60,6 @@ public class OutputView {
                 return prizes.get(position);
             }
         }
-        return "예외 발생";
+        throw new IllegalArgumentException("플레이어 중 해당 이름을 가진 사람은 없습니다.");
     }
 }
