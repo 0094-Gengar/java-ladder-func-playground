@@ -1,12 +1,9 @@
 package view;
 
 import domain.Player;
-import domain.PlayerCollection;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import static domain.PlayerCollection.createPlayerCollection;
 import static domain.PrizeCollection.createPrizeCollection;
 
@@ -23,10 +20,6 @@ public class InputView {
         validatePlayerNameUnderFive(players);
 
         return playerName;
-    }
-
-    public static List<Player> getPlayers() {
-        return players;
     }
 
     public static void validatePlayerNameUnderFive(final List<Player> players) {
@@ -69,8 +62,6 @@ public class InputView {
             throw new IllegalArgumentException("사다리의 높이는 1 이상이어야 합니다.");
         }
     }
-    // 예외 상황 2: 숫자가 아닌 다른 문자가 입력되었을 때
-//    public static void validateLadderHeight()
 
     public static String inputPlayerPrize() {
         System.out.println("결과를 보고 싶은 사람은?");

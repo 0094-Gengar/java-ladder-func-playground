@@ -23,9 +23,6 @@ public class PlayerCollection {
         }
         if (!nameBuilder.isEmpty()) {
             players.add(new Player(nameBuilder.toString().trim(), position++));
-
-            // 예외 상황 1: 플레이어의 이름 5글자 초과 시 예외 발생
-            // 예외 상황 2: 플레이어의 이름에 영어,숫자,한글이 아닌 문자가 입력되었을 때 예외 발생
         }
         return players;
     }

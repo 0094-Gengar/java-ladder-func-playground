@@ -6,7 +6,6 @@ import domain.PlayerCollection;
 import domain.PlayerMovingLogic;
 import view.InputView;
 import view.OutputView;
-
 import java.util.List;
 
 public class LadderController {
