@@ -78,7 +78,7 @@ public class InputView {
 
     public static void validatePlayerName(final String playerName) {
         for (Player player : players) {
-            if (!player.getName().equals(playerName)) {
+            if (!player.getName().equals(playerName) && !playerName.equals("all")) {
                 throw new IllegalArgumentException("플레이어 중 해당 이름을 가진 사람은 없습니다.");
             }
         }
