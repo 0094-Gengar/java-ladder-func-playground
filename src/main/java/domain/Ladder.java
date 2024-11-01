@@ -2,9 +2,14 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Ladder {
-    private static final RandomGenerator randomGenerator = new RandomGenerator();
+    private static RandomGenerator randomGenerator = new RandomGenerator();
+
+    public Ladder(RandomGenerator randomGenerator) {
+        this.randomGenerator = randomGenerator;
+    }
 
     public static List<String> generateLadderRow(int widthOfLadder) {
         List<String> ladderRow = new ArrayList<>();
