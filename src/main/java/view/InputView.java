@@ -1,15 +1,19 @@
 package view;
 
 import domain.Player;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import static domain.PlayerCollection.createPlayerCollection;
 import static domain.PrizeCollection.createPrizeCollection;
 
 public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
     private static List<Player> players = new ArrayList<>();
+    private static final int PLAYERS_MAX_NAME_LENGTH = 5;
+    private static final int LADDERS_MIN_HEIGHT = 1;
 
     public static String inputPlayerName() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
@@ -24,7 +28,7 @@ public class InputView {
 
     public static void validatePlayerNameUnderFive(final List<Player> players) {
         for (Player player : players) {
-            if (player.getName().length() > 5) {
+            if (player.getName().length() > PLAYERS_MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException("사람 이름은 5글자 이하여야 합니다.");
             }
         }
@@ -58,7 +62,7 @@ public class InputView {
     }
 
     public static void validateLadderHeight(final int heightOfLadder) {
-        if (heightOfLadder < 1) {
+        if (heightOfLadder < LADDERS_MIN_HEIGHT) {
             throw new IllegalArgumentException("사다리의 높이는 1 이상이어야 합니다.");
         }
     }
