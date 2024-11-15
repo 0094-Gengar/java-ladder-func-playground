@@ -13,7 +13,6 @@ public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
     private static List<Player> players = new ArrayList<>();
     private static final int PLAYERS_MAX_NAME_LENGTH = 5;
-    private static final int LADDERS_MIN_HEIGHT = 1;
 
     public static String inputPlayerName() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
@@ -54,18 +53,11 @@ public class InputView {
     public static int ladderHeight() {
         int ladderHeight;
         System.out.println("최대 사다리의 높이는 몇 개인가요?");
-
         ladderHeight = scanner.nextInt();
-        validateLadderHeight(ladderHeight);
-
         return ladderHeight;
     }
 
-    public static void validateLadderHeight(final int heightOfLadder) {
-        if (heightOfLadder < LADDERS_MIN_HEIGHT) {
-            throw new IllegalArgumentException("사다리의 높이는 1 이상이어야 합니다.");
-        }
-    }
+
 
     public static String inputPlayerPrize() {
         System.out.println("결과를 보고 싶은 사람은?");

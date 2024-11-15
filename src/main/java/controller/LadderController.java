@@ -14,6 +14,7 @@ public class LadderController {
     private LadderCollection ladderCollection;
     private PlayerMovingLogic playerMovingLogic;
     private OutputView outputView;
+    private static final int LADDERS_MIN_HEIGHT = 1;
 
     public void run() {
         inputPlayerNames();
@@ -37,11 +38,20 @@ public class LadderController {
 
     private void generateLadders() {
         int heightOfLadder = InputView.ladderHeight();
+        validateLadderHeight(heightOfLadder);
+        // 예외 처리
+
         InputView.clearScannerBuffer();
         int widthOfLadder = players.size();
         this.ladderCollection = new LadderCollection(heightOfLadder, widthOfLadder);
         this.playerMovingLogic = new PlayerMovingLogic(ladderCollection);
         this.outputView = new OutputView(ladderCollection, players, inputResults);
+    }
+
+    public static void validateLadderHeight(final int heightOfLadder) {
+        if (heightOfLadder < LADDERS_MIN_HEIGHT) {
+            throw new IllegalArgumentException("사다리의 높이는 1 이상이어야 합니다.");
+        }
     }
 
     private void printResultOfLadders() {
