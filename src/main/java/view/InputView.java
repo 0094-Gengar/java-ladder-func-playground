@@ -62,19 +62,17 @@ public class InputView {
     public static String inputPlayerPrize() {
         System.out.println("결과를 보고 싶은 사람은?");
 
-        String playerPrize = scanner.nextLine();
-        validatePlayerName(playerPrize);
-
-        return playerPrize;
+        return scanner.nextLine();
     }
 
-    public static void validatePlayerName(final String playerName) {
-        for (Player player : players) {
-            if (!player.getName().equals(playerName) && !playerName.equals("all")) {
-                throw new IllegalArgumentException("플레이어 중 해당 이름을 가진 사람은 없습니다.");
-            }
-        }
-    }
+//    public static void validatePlayerName(final String playerName) {
+//        for (Player player : players) {
+//            if (!player.getName().equals(playerName) && !playerName.equals("all")) {
+//                throw new IllegalArgumentException("플레이어 중 해당 이름을 가진 사람은 없습니다.");
+//            }
+//        }
+//    }
+    // 위치가 이상함...
 
     public static void clearScannerBuffer() {
         scanner.nextLine();
