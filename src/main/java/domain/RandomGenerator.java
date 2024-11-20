@@ -6,9 +6,6 @@ public class RandomGenerator {
     private static final Random random = new Random();
 
     public int generateRandom() {
-        if (random.nextBoolean()) {
-            return 1;
-        }
-        return 0;
+        return random.nextInt(2);
     }
 }
