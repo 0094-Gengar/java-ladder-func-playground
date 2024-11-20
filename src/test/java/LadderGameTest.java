@@ -12,7 +12,7 @@ public class LadderGameTest {
         // Given
         String inputPlayerName = "shin,ji,hoon";
         // When
-        List<Player> players = PlayerCollection.createPlayerCollection(inputPlayerName);
+        List<Player> players = PlayerRoster.createPlayerCollection(inputPlayerName);
         // Then
         assertEquals(3, players.size());
         assertEquals("shin", players.get(0).getName());
