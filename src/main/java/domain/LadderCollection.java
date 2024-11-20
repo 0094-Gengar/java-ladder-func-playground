@@ -13,7 +13,7 @@ public class LadderCollection {
 
     private void generateLadderLayers(int heightOfLadder, int widthOfLadder) {
         for (int i = 0; i < heightOfLadder; i++) {
-            ladderLayers.add(Ladder.generateLadderRow(widthOfLadder));
+            ladderLayers.add(LadderRowGenerator.generateLadderRow(widthOfLadder));
         }
     }
 
