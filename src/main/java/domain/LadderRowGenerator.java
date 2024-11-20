@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LadderRowGenerator {
-    private static RandomGenerator randomGenerator;
+    private static RandomGenerator randomGenerator = new RandomGenerator();
 
     public LadderRowGenerator(RandomGenerator randomGenerator) {
-        LadderRowGenerator.randomGenerator = randomGenerator;
+        this.randomGenerator = randomGenerator;
     }
 
     public static List<String> generateLadderRow(int widthOfLadder) {
@@ -15,9 +15,9 @@ public class LadderRowGenerator {
         ladderRow.add("|");
 
         boolean previousBridgeExists = false;
-
+        int value = randomGenerator.generateRandom();
         for (int i = 0; i < widthOfLadder - 1; i++) {
-            if (!previousBridgeExists && randomGenerator.generateRandom() == 1) {
+            if (!previousBridgeExists && value == 1) {
                 ladderRow.add("-----");
                 previousBridgeExists = true;
             } else {
