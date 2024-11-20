@@ -3,7 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerCollection {
+public class PlayerRoster {
 
     public static List<Player> createPlayerCollection(String input) {
         List<Player> players = new ArrayList<>();

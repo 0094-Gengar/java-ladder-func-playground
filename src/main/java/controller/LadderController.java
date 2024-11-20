@@ -2,7 +2,7 @@ package controller;
 
 import domain.LadderCollection;
 import domain.Player;
-import domain.PlayerCollection;
+import domain.PlayerRoster;
 import domain.PlayerMovingLogic;
 import view.InputView;
 import view.OutputView;
@@ -26,7 +26,7 @@ public class LadderController {
 
     private List<Player> inputPlayerNames() {
         String inputPlayers = InputView.inputPlayerName();
-        return PlayerCollection.createPlayerCollection(inputPlayers);
+        return PlayerRoster.createPlayerCollection(inputPlayers);
     }
 
     private void generateLadders(int widthOfLadder) {

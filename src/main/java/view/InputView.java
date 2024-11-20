@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static domain.PlayerCollection.createPlayerCollection;
+import static domain.PlayerRoster.createPlayerCollection;
 import static domain.PrizeCollection.createPrizeCollection;
 
 public class InputView {
