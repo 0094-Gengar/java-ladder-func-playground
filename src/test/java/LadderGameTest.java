@@ -24,9 +24,9 @@ public class LadderGameTest {
     public void 사다리_한칸_생성_테스트() {
         int widthOfLadder = 4;
         MockRandomGenerator randomGenerator = new MockRandomGenerator(1);
-        Ladder ladder = new Ladder(randomGenerator);
+        LadderRowGenerator ladder = new LadderRowGenerator(randomGenerator);
 
-        List<String> ladderRow = Ladder.generateLadderRow(widthOfLadder);
+        List<String> ladderRow = LadderRowGenerator.generateLadderRow(widthOfLadder);
 
         assertEquals("|-----|     |-----|", String.join("", ladderRow));
     }
