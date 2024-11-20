@@ -10,33 +10,31 @@ import view.OutputView;
 import java.util.List;
 
 public class LadderController {
-    private List<Player> players;
     private LadderCollection ladderCollection;
     private PlayerMovingLogic playerMovingLogic;
 
     public void run() {
-        inputPlayerNames();
-        generateLadders();
+        List<Player> players = inputPlayerNames();
+        generateLadders(players.size());
+        String inputResults = InputView.inputPrizeOfResult();
+        new OutputView(ladderCollection, players, inputResults);
         printResultOfLadders();
-        startLadderGame();
+        startLadderGame(players);
         resultOfLadderGames();
         Runtime.getRuntime().addShutdownHook(new Thread(InputView::closeScanner));
     }
 
-    private void inputPlayerNames() {
+    private List<Player> inputPlayerNames() {
         String inputPlayers = InputView.inputPlayerName();
-        this.players = PlayerCollection.createPlayerCollection(inputPlayers);
+        return PlayerCollection.createPlayerCollection(inputPlayers);
     }
 
-    private void generateLadders() {
+    private void generateLadders(int widthOfLadder) {
         int heightOfLadder = InputView.ladderHeight();
         validateLadderHeight(heightOfLadder);
         InputView.clearScannerBuffer();
-        String inputResults = InputView.inputPrizeOfResult();
-        int widthOfLadder = players.size();
         this.ladderCollection = new LadderCollection(heightOfLadder, widthOfLadder);
         this.playerMovingLogic = new PlayerMovingLogic(ladderCollection);
-        new OutputView(ladderCollection, players, inputResults);
     }
 
     public static void validateLadderHeight(final int heightOfLadder) {
@@ -50,7 +48,7 @@ public class LadderController {
         OutputView.resultOfLadders();
     }
 
-    private void startLadderGame() {
+    private void startLadderGame(List<Player> players) {
         playerMovingLogic.updatePlayerPositions(players);
     }
 
